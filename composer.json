@@ -1,0 +1,73 @@
+{
+    "name": "topthink/think",
+    "description": "the new thinkphp framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "thinkphp",
+        "ORM"
+    ],
+    "homepage": "http://thinkphp.cn/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "liu21st",
+            "email": "liu21st@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "ext-gd": "*",
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-iconv": "*",
+        "ext-openssl": "*",
+        "ext-mbstring": "*",
+        "ext-redis": "*",
+        "ext-libxml": "*",
+        "ext-simplexml": "*",
+        "ext-zip": "*",
+        "topthink/framework": "5.1.*",
+        "topthink/think-captcha": "2.0.*",
+        "topthink/think-helper": "1.0.*",
+        "firebase/php-jwt": "^5.3.0",
+        "symfony/cache": "^4.4",
+        "phpoffice/phpspreadsheet": "1.16.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "application"
+        }
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "classmap-authoritative": false
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    ],
+    "scripts": {
+        "build-dev": [
+            "php -r \"copy('.env.dev', '.env');\"",
+            "php think optimize:permission"
+        ],
+        "build-prod": [
+            "php -r \"copy('.env.prod', '.env');\"",
+            "php think optimize:permission",
+            "@composer dump-autoload --no-interaction --verbose --optimize"
+        ]
+    },
+    "scripts-descriptions": {
+        "install-rsa-utils": "Regenerate a new key pair for the rsa-utils package!",
+        "build-dev": "Set development environment configuration.",
+        "build-prod": "Set production environment configuration and optimize autoload."
+    }
+}

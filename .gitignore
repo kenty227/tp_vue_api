@@ -1,0 +1,17 @@
+.DS_Store
+.idea
+.vscode
+
+vendor
+
+public/admin
+public/uploads
+public/.htaccess
+public/nginx.htaccess
+
+# build.php
+.travis.yml
+
+.env
+
+*.log
